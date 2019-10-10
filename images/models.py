@@ -7,4 +7,9 @@ class Image(models.Model):
     description = models.TextField()
     def save_image(self):
         self.save()
+class Location(models.Model):
+    country=models.CharField(max_length=50)
+    place=models.CharField(max_length=50)
+class Category(models.Model):
+    category=models.CharField(max_length=50)
 
