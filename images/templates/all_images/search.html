@@ -4,20 +4,22 @@
 
     <div class="row">
         {% if images%}
-        <h2>Found {{ images|length }} of searched term {{message}}</h2>
+        <h2>Found {{ images|length }} of searched term. {{message}}</h2>
         {% else %}
-        <h2> Found 0 images for the search term {{message}}</h2>
+        <h2> Found 0 images for the search term. {{message}}</h2>
         {% endif %}
 
     </div>
+    {% if images%}
 
-    <div class="row">
-        {% for pic in images %}
-        <div class="col-sm-6 col-md-3">
-            <a href="" data-toggle="modal" data-target="#{{pic.id}}">
+    {% for img in image %}
+
+    <div class=" row">
+        <div class="col-md-6">
+            <p>{{img.category}} </p>
         </div>
-        {% endfor %}
-
+        {%endfor%}
+        {%endif%}
     </div>
-</div>
-{% endblock %}
+
+    {%endblock%}

@@ -14,11 +14,7 @@ class Category(models.Model):
         return self.category
     def save_category(self):
         self.save()
-    @classmethod
-    def search_by_category(cls,search_term):
-        category = Category.objects.filter(category__icontains=search_term).first()
-        image = cls.objects.filter(category=category)
-        return image
+    
 class Image(models.Model):
     image = models.ImageField(upload_to = 'pictures/')
     name = models.CharField(max_length =60)
@@ -28,4 +24,12 @@ class Image(models.Model):
     pub_date = models.DateTimeField(auto_now_add=True)
     def save_image(self):
         self.save()
-
+    @classmethod
+    def get_all(cls):
+        images = cls.objects.all()
+        return images
+    @classmethod
+    def search_by_category(cls,search_term):
+        category = Category.objects.filter(category__icontains=search_term).first()
+        image = cls.objects.filter(category=category)
+        return image

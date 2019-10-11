@@ -1,10 +1,13 @@
 from django.shortcuts import render
 from django.http  import HttpResponse,Http404
-from .models import Image,Category,Location
+from .models import Image,Location
 # Create your views here.
-def Belle(request):
+# def Belle(request):
     # return HttpResponse('Belles Images')
-    return render(request, 'belle.html')
+    # return render(request, 'belle.html')
+def image(request):
+    image = Image.get_all()
+    return render(request,"all_images/foto.html", {"image":image})  
 def search_results(request):
 
     if 'image' in request.GET and request.GET["image"]:
@@ -16,5 +19,6 @@ def search_results(request):
 
     else:
         message = "You haven't searched for any term"
-        return render(request, 'all_images/search.html',{"message":message})
+        return render(request, 'all_images/search.html',{"message":message})      
+
     

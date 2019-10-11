@@ -1,0 +1,35 @@
+{%extends 'all_images/base.html'%}
+
+{% block content %}
+{{block.super}}
+
+<body>
+
+    <div class="container-fluid">
+
+        {% for img in image %}
+        <div class="row">
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                <img src="{{img.image.url}}" class="img-responsive" alt="Image" width='400' length='450'><br><br>
+            </div>
+            <div class="col-md-6">
+                <p>Name: {{img.name}}</p>
+                <p>Description: {{img.description}}</p>
+                <p>Location: {{img.location}}</p>
+                <p>Category: {{img.category}}</p>
+            </div>
+        </div>
+
+
+    </div>
+
+    {% empty %}
+    <div class="row">
+        <h2 class="text-center">There is No New images</h2>
+    </div>
+
+
+    {% endfor %}
+    </div>
+</body>
+{% endblock %}
