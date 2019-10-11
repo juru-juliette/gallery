@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http  import HttpResponse,Http404
-from .models import Image,Location
+from .models import Image,Location,Category
 # Create your views here.
 # def Belle(request):
     # return HttpResponse('Belles Images')
@@ -19,6 +19,12 @@ def search_results(request):
 
     else:
         message = "You haven't searched for any term"
-        return render(request, 'all_images/search.html',{"message":message})      
+        return render(request, 'all_images/search.html',{"message":message})   
+def detail(request,image_id):
+    try:
+        image = Image.objects.get(id = image_id)
+    except DoesNotExist:
+        raise Http404()
+    return render(request,"all_images/details.html", {"image":image})   
 
     

@@ -20,7 +20,7 @@ class Image(models.Model):
     name = models.CharField(max_length =60)
     description = models.TextField()
     location = models.ForeignKey(Location)
-    category = models.ForeignKey(Category)
+    category = models.ForeignKey(Category,db_column='category')
     pub_date = models.DateTimeField(auto_now_add=True)
     def save_image(self):
         self.save()
@@ -30,6 +30,7 @@ class Image(models.Model):
         return images
     @classmethod
     def search_by_category(cls,search_term):
-        category = Category.objects.filter(category__icontains=search_term).first()
-        image = cls.objects.filter(category=category)
+        # category = Category.objects.filter(category__icontains=search_term).first()
+        image = cls.objects.filter(category__category__contains=search_term)
         return image
+    
