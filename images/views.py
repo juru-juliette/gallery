@@ -20,11 +20,11 @@ def search_results(request):
     else:
         message = "You haven't searched for any term"
         return render(request, 'all_images/search.html',{"message":message})   
-def detail(request,image_id):
-    try:
-        image = Image.objects.get(id = image_id)
-    except DoesNotExist:
-        raise Http404()
-    return render(request,"all_images/details.html", {"image":image})   
 
+def detail(request,image_id):
+        image = Image.objects.get(id = image_id)
+        return render(request,"all_images/details.html", {"image":image})
+def location(request,country):
+    locat= Location.objects.get(location=country)
+    return render(request,"all_images/location.html",{"locat":locat})
     
