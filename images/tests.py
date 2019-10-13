@@ -14,6 +14,13 @@ class LocationTestClass(TestCase):
         self.loca.save_location()
         location = Location.objects.all()
         self.assertTrue(len(location) > 0)
+    def test_update(self):
+        self.loca.save_location()
+        location= Location.objects.filter(country="Rwanda").first()
+        update = Location.objects.filter(id=location.id).update(country="Nigeria")
+        updated = Location.objects.filter(country="Nigeria").first()
+        self.assertTrue(Location.country,updated.country)
+
 
 class CategoryTestClass(TestCase):
     '''
@@ -47,4 +54,10 @@ class ImageTestClass(TestCase):
     def test_get_all_images(self):
         images = Image.objects.all()
         self.assertTrue(Image.name)
- 
+    # testing update method
+    # def test_update(self):
+    #     self.new_image.save_image()
+    #     image= Image.objects.filter(name=new_image).first()
+    #     update = Image.objects.filter(id=image.id).update(name="juru")
+    #     updated = Image.objects.filter(name = "juru").first()
+    #     self.assertTrue(Image.name,updated.name)
