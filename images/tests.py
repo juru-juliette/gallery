@@ -45,6 +45,6 @@ class ImageTestClass(TestCase):
         images = Image.search_by_category('imag')
         self.assertFalse(len(images)>0)
     def test_get_all_images(self):
-        images = Image.get_all()
-        self.assertTrue(len(images)>0)
+        images = Image.objects.all()
+        self.assertTrue(Image.name)
  
