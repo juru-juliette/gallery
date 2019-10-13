@@ -11,7 +11,8 @@
     <div class="row">
       <div class="col-md-4">
         <a data-toggle="modal" data-target="#{{img.id}}">
-          <img style="margin-top:20px; margin-bottom:20px;" src="{{img.image.url}}" alt="Image" height="200" width="300" ><br><br>
+          <img style="margin-top:20px; margin-bottom:20px;" src="{{img.image.url}}" alt="Image" height="200"
+            width="300"><br><br>
         </a>
       </div>
 
@@ -31,7 +32,19 @@
               <img src="{{img.image.url}}" alt="Image" width='400' length='500'>
               <p><strong>place: {{img.location}}</strong></p><br>
               <p><strong>category:</strong>{{img.category}}</p>
+              <button class="btn btn-dark" onclick="copyUrl('{{image.id}}-url')"
+                style="color: black;font-family: 'Acme', sans-serif;">Copy Image Url</button>
+              <input class="form-control input-lg" type="text" value="http://127.0.0.1:8000{{image.photo.url}}"
+                id="{{image.id}}-url" style="color: black;font-family: 'Acme', sans-serif;">
             </div>
+            <script type="text/javascript">
+              function copyUrl(element) {
+                var myVar = document.getElementById(element);
+                myVar.select();
+                document.execCommand('copy');
+                alert("Copied the link of image: " + myVar.value);
+              }
+            </script>
             <div class="modal-footer">
               <button type="button" class="btn btn-default" data-dismiss="modal"
                 style="background-color:rgb(168, 105, 105);color:white;">Close</button>
@@ -43,7 +56,7 @@
       {% endfor %}
     </div>
 
-    
+
   </div>
 </body>
 
