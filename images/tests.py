@@ -80,11 +80,16 @@ class ImageTestClass(TestCase):
         Location.objects.all().delete()
         Category.objects.all().delete()
         Image.objects.all().delete()
-    # Testing get images by id Method
+    # testing get images by id Method
     def test_get_image_by_id(self):
         self.new_image.save_image()
-        fetched_image = Image.get_image_by_id(1)
-        self.assertEqual(fetched_image.id,1)
+        image = Image.get_image_by_id(1)
+        self.assertEqual(image.id,1)
+    # testing filter by by location Method
+    # def test_filter_by_location(self):
+    #     self.new_image.save_image()
+    #     image = Image.filter_location('Nigeria')
+    #     self.assertEqual(image.get(id=1),self.new_image)
     
     
 

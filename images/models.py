@@ -56,10 +56,7 @@ class Image(models.Model):
     def get_image_by_id(cls,id):
         image = Image.objects.get(id=id)
         return image
-    @classmethod
-    def filter_category(cls,query):
-        image = cls.objects.filter(category=query)
-        return image
+
     @classmethod
     def filter_location(cls,fil):
         loc_image=Image.objects.filter(location__country__icointain=fil)
