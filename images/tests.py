@@ -20,6 +20,11 @@ class LocationTestClass(TestCase):
         update = Location.objects.filter(id=location.id).update(country="Nigeria")
         updated = Location.objects.filter(country="Nigeria").first()
         self.assertTrue(Location.country,updated.country)
+    # def test_delete_location(self):
+        
+    #     self.loca.delete_location()
+    #     location = Location.objects.all()
+    #     self.assertTrue(len(location) == 0)
 
 
 class CategoryTestClass(TestCase):
@@ -41,10 +46,10 @@ class CategoryTestClass(TestCase):
         update = Category.objects.filter(id=category.id).update(category='Travel')
         updated = Category.objects.filter(category='Travel').first()
         self.assertTrue(Category.category,updated.category)
-    def test_delete_category(self):
-        self.cat.delete_category()
-        categories= Category.objects.all()
-        self.assertTrue(len(categories) == 0)
+    # def test_delete_category(self):
+    #     self.cat.delete_category()
+    #     categories= Category.objects.all()
+    #     self.assertTrue(len(categories) == 0)
 class ImageTestClass(TestCase):
     '''
     test for Image class
@@ -63,9 +68,7 @@ class ImageTestClass(TestCase):
         new_image = Image.objects.all()
         self.assertTrue(len(new_image) > 0)
     # testing update method
-    # def test_update(self):
-    #     new_image=Image.update_name(1,'juju')
-    #     self.assertTrue(self.image.name != new_image)
+        
     def test_search_image(self):
         images = Image.search_by_category('imag')
         self.assertFalse(len(images)>0)
@@ -77,12 +80,11 @@ class ImageTestClass(TestCase):
         Location.objects.all().delete()
         Category.objects.all().delete()
         Image.objects.all().delete()
-    # def test_delete_image(self):
-    #     self.cat.save()
-    #     self.loca.save()
-    #     # self.image.save_image()
-    #     self.image.delete_image()
-    #     images = Image.objects.all()
-    #     self.assertTrue(len(images) == 0)
+    # Testing get images by id Method
+    def test_get_image_by_id(self):
+        self.new_image.save_image()
+        fetched_image = Image.get_image_by_id(1)
+        self.assertEqual(fetched_image.id,1)
+    
     
 

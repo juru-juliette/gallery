@@ -44,11 +44,17 @@ class Image(models.Model):
     def search_by_category(cls,search_term):
         image = cls.objects.filter(category__category__contains=search_term)
         return image
+    @classmethod
+    def update(cls,id,name):
+        image=Image.objects.filter(id=id)
+        image.update(name=name)
+        return image
+
     def delete_image(self):
         self.delete()
     @classmethod 
     def get_image_by_id(cls,id):
-        image = Image.object.get(id=id)
+        image = Image.objects.get(id=id)
         return image
     @classmethod
     def filter_category(cls,query):
