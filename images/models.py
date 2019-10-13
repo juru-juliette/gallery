@@ -7,7 +7,7 @@ class Location(models.Model):
         return self.country
     def save_location(self):
         self.save()
-    def delete_image(self):
+    def delete_location(self):
         self.delete()
     @classmethod 
     def update (cls,id,name):
@@ -20,7 +20,7 @@ class Category(models.Model):
         return self.category
     def save_category(self):
         self.save()
-    def delete_image(self):
+    def delete_category(self):
         self.delete()
     @classmethod
     def update(cls,id,name):
