@@ -2,7 +2,7 @@
  this is my personal gallery application 
 
 ### INTRODUCTION
-gallery is a photo web application that shows different image category nad displays all images taken by me, March 15th, 2019.
+gallery is a photo web application that shows different image category nad displays all images selected by me.
 
 
 ## Description
