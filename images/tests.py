@@ -31,6 +31,16 @@ class CategoryTestClass(TestCase):
         self.cat = Category(category='Animmals')
     def test_instance(self):
         self.assertTrue(isinstance(self.cat,Category))
+    def test_save_method(self):
+        self.cat.save_category()
+        category = Category.objects.all()
+        self.assertTrue(len(category) > 0)
+    def test_update(self):
+        self.cat.save_category()
+        category= Category.objects.filter(category='Animmals').first()
+        update = Category.objects.filter(id=category.id).update(category='Travel')
+        updated = Category.objects.filter(category='Travel').first()
+        self.assertTrue(Category.category,updated.category)
 class ImageTestClass(TestCase):
     '''
     test for Image class
