@@ -1,5 +1,5 @@
 from django.db import models
-import datetime as dt
+# import pyperclip
 # Create your models here.
 class Location(models.Model):
     country=models.CharField(max_length=50)
@@ -33,7 +33,7 @@ class Image(models.Model):
     description = models.TextField()
     location = models.ForeignKey(Location)
     category = models.ForeignKey(Category,db_column='category')## Reference stackoverflow
-    pub_date = models.DateTimeField(auto_now_add=True)
+   
     def save_image(self):
         self.save()
     @classmethod
