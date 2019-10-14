@@ -21,7 +21,7 @@ Gallery is a website application that shows different image. Users have to see p
 * Postgres
 * python virtualenv
 * django==1.11
-* bootsrap
+* bootstrap 3
 
 ## Clone the Repo
 * Run the following command on the terminal: git clone https://github.com/juru-juliette/gallery.git 
