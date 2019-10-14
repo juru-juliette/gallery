@@ -27,7 +27,7 @@ def detail(request,image_id):
 def location(request,country):
     locat= Location.objects.get(location=country)
     return render(request,"all_images/location.html",{"locat":locat})
-def share(request,id):
-    image=Image.share(id=id)
-    return redirect(image)
+# def share(request,id):
+#     image=Image.share(id=id)
+#     return redirect(image)
     

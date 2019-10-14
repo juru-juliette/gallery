@@ -20,11 +20,7 @@ class LocationTestClass(TestCase):
         update = Location.objects.filter(id=location.id).update(country="Nigeria")
         updated = Location.objects.filter(country="Nigeria").first()
         self.assertTrue(Location.country,updated.country)
-    # def test_delete_location(self):
-        
-    #     self.loca.delete_location()
-    #     location = Location.objects.all()
-    #     self.assertTrue(len(location) == 0)
+    
 
 
 class CategoryTestClass(TestCase):
@@ -46,10 +42,7 @@ class CategoryTestClass(TestCase):
         update = Category.objects.filter(id=category.id).update(category='Travel')
         updated = Category.objects.filter(category='Travel').first()
         self.assertTrue(Category.category,updated.category)
-    # def test_delete_category(self):
-    #     self.cat.delete_category()
-    #     categories= Category.objects.all()
-    #     self.assertTrue(len(categories) == 0)
+    
 class ImageTestClass(TestCase):
     '''
     test for Image class
@@ -85,11 +78,7 @@ class ImageTestClass(TestCase):
         self.new_image.save_image()
         image = Image.get_image_by_id(1)
         self.assertEqual(image.id,1)
-    # testing filter by by location Method
-    # def test_filter_by_location(self):
-    #     self.new_image.save_image()
-    #     image = Image.filter_location('Nigeria')
-    #     self.assertEqual(image.get(id=1),self.new_image)
+    
     
     
 
