@@ -1,5 +1,5 @@
 from django.db import models
-# import pyperclip
+
 # Create your models here.
 class Location(models.Model):
     country=models.CharField(max_length=50)
