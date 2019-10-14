@@ -23,6 +23,9 @@ Gallery is a website application that shows different image. Users have to see p
 * django==1.11
 * bootstrap 3
 
+## BDD
+<img src="./pictures/Screenshot from 2019-10-14 09-05-23.png">
+
 ## Clone the Repo
 * Run the following command on the terminal: git clone https://github.com/juru-juliette/gallery.git 
 * type cd gallery on terminal
