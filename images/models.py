@@ -33,7 +33,6 @@ class Image(models.Model):
     description = models.TextField()
     location = models.ForeignKey(Location)
     category = models.ForeignKey(Category,db_column='category')## Reference stackoverflow
-   
     def save_image(self):
         self.save()
     @classmethod
@@ -61,4 +60,5 @@ class Image(models.Model):
     def filter_location(cls,fil):
         loc_image=Image.objects.filter(location__country__icointain=fil)
         return loc_image
+    
     
